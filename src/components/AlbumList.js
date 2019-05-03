@@ -8,21 +8,22 @@ class AlbumList extends Component{
 
 
     componentWillMount(){
-        //console.log('Component will mount in album list');
-        axios.get('https://rallycoding.herokuapp.com/api/music_albums')
+        console.log('Component will mount in album list');
+        axios.get('http://rallycoding.herokuapp.com/api/music_albums')
         .then(response => this.setState({ albums: response.data }));
+       // .then(response => console.log(response));
     }
 
-    renderAlbums(){
+    renderrerAlbums(){
       return this.state.albums.map(album =>
          <AlbumDetail key={album.title} album = {album}/>);
     }
 
     render(){
-       // console.log(this.state);
+       console.log(this.state);
         return(
             <ScrollView>
-            {this.renderAlbums()}
+            {this.renderrerAlbums()}
             </ScrollView>
         );
     }
